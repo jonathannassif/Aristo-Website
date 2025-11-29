@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Aristo — Learn · Innovate · Dream</title>
+
+    <!-- Add Font Awesome for social icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* RESET */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --navy-900: #0d142b;
+        --blue-800: #002269;
+        --white: #ffffff;
+        --cyan-500: #009ecf;
+        --cyan-200: #97e7f5;
+        --green-600: #46b000;
+        --max-width: 1200px;
+      }
+
+      @font-face {
+        font-family: "Punoer";
+        src: url("../fonts/Punoer.otf") format("opentype");
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      body {
+        font-family: Punoer, sans-serif;
+        background: var(--navy-900);
+        color: var(--white);
+        line-height: 1.5;
+      }
+
+      /* WRAPPER */
+      .wrap {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* HEADER */
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(5, 20, 52, 0.98);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .brand-logo {
+        height: 46px;
+        transition: height 0.3s;
+      }
+
+      /* Desktop Nav */
+      .nav {
+        display: flex;
+        gap: 32px;
+      }
+
+      .nav a {
+        color: #d7e5f2;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: color 0.3s;
+      }
+
+      .nav a:hover {
+        color: var(--cyan-500);
+      }
+
+      /* Mobile Toggle Button */
+      .mobile-toggle {
+        display: none;
+        flex-direction: column;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        gap: 5px;
+      }
+
+      .bar {
+        width: 28px;
+        height: 3px;
+        background: white;
+        border-radius: 3px;
+        transition: all 0.4s ease;
+      }
+
+      /* MOBILE PANEL */
+      .mobile-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(5, 20, 52, 0.99);
+        backdrop-filter: blur(15px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        transform: translateY(-100%);
+        transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+      }
+
+      .mobile-panel.open {
+        transform: translateY(0);
+      }
+
+      .mobile-close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 3rem;
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .mobile-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+      }
+
+      .mobile-nav a {
+        color: white;
+        font-size: 2rem;
+        font-weight: 700;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all 0.3s;
+      }
+
+      .mobile-nav a:hover {
+        color: var(--cyan-500);
+        text-shadow: 0 0 20px rgba(0, 194, 203, 0.6);
+      }
+
+      /* HERO */
+      .hero {
+        position: relative;
+        min-height: 30vh;
+        padding-top: 120px;
+        background: linear-gradient(
+            rgba(13, 20, 43, 0.7),
+            rgba(13, 20, 43, 0.9)
+          ),
+          url("../images/pexels-markusspiske-1679716.jpg") center/cover
+            no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-content h1 {
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        text-transform: uppercase;
+        line-height: 1.1;
+        text-align: center;
+        color: var(--white);
+      }
+
+      .hero-content h1 span {
+        color: var(--cyan-500);
+      }
+
+      /* CONTACT SECTION */
+      .contact {
+        background: var(--navy-900);
+        color: var(--white);
+        padding: 80px 0;
+      }
+
+      .contact .section-heading {
+        font-size: clamp(3rem, 8vw, 5.5rem);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        color: var(--cyan-500);
+        text-align: center;
+      }
+
+      .contact .section-heading span {
+        color: var(--white);
+      }
+
+      .contact .section-sub {
+        font-size: clamp(1.5rem, 4vw, 2.2rem);
+        color: var(--green-600);
+        margin-bottom: 60px;
+        text-align: center;
+      }
+
+      .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: start;
+      }
+
+      .contact-form {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .contact-form label {
+        display: block;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+        color: var(--cyan-200);
+        font-weight: 600;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 14px 18px;
+        margin-bottom: 25px;
+        border: 2px solid rgba(0, 158, 207, 0.3);
+        border-radius: 10px;
+        background: rgba(13, 20, 43, 0.6);
+        color: var(--white);
+        font-size: 1rem;
+        font-family: Punoer, sans-serif;
+        transition: all 0.3s;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        border-color: var(--cyan-500);
+        background: rgba(13, 20, 43, 0.8);
+        box-shadow: 0 0 0 3px rgba(0, 158, 207, 0.1);
+      }
+
+      .contact-form textarea {
+        resize: vertical;
+        min-height: 140px;
+      }
+
+      .contact-form button {
+        background: var(--cyan-500);
+        color: var(--white);
+        padding: 16px 40px;
+        border: none;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-transform: uppercase;
+        box-shadow: 0 8px 20px rgba(0, 158, 207, 0.3);
+      }
+
+      .contact-form button:hover {
+        background: var(--green-600);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(70, 176, 0, 0.4);
+      }
+
+      /* Contact Info */
+      .contact-info {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .contact-info h4 {
+        font-size: 2rem;
+        color: var(--cyan-500);
+        margin-bottom: 20px;
+        text-transform: uppercase;
+      }
+
+      .contact-info p {
+        font-size: 1.15rem;
+        color: #d7e5f2;
+        margin-bottom: 15px;
+        line-height: 1.8;
+      }
+
+      .contact-info a {
+        text-decoration: none;
+        color: var(--cyan-500);
+        transition: color 0.3s;
+      }
+
+      .contact-info a:hover {
+        color: var(--cyan-200);
+      }
+
+      .contact-info .social {
+        margin: 30px 0;
+        display: flex;
+        gap: 20px;
+      }
+
+      .contact-info .social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(0, 158, 207, 0.15);
+        color: var(--cyan-500);
+        font-size: 1.5rem;
+        transition: all 0.3s;
+        border: 2px solid rgba(0, 158, 207, 0.3);
+      }
+
+      .contact-info .social a:hover {
+        background: var(--cyan-500);
+        color: var(--white);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 158, 207, 0.4);
+      }
+
+      .contact-info .map-container {
+        margin-top: 35px;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 15px;
+        border: 2px solid rgba(0, 158, 207, 0.3);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .contact-info .map-container iframe {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Footer */
+      .site-footer {
+        background: #081022;
+        padding: 30px 0;
+        color: var(--white);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+
+      .site-footer .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .site-footer .footer-logo {
+        height: 40px;
+      }
+
+      .site-footer .social a {
+        color: var(--cyan-500);
+        margin-left: 20px;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .site-footer .social a:hover {
+        color: var(--cyan-200);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 992px) {
+        .nav {
+          display: none;
+        }
+
+        .mobile-toggle {
+          display: flex;
+        }
+
+        .contact-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .brand-logo {
+          height: 42px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .contact {
+          padding: 60px 0;
+        }
+
+        .contact-form,
+        .contact-info {
+          padding: 30px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+          font-size: 1.05rem;
+          padding: 16px;
+        }
+
+        .contact-form button {
+          width: 100%;
+          padding: 18px;
+          font-size: 1.15rem;
+        }
+
+        .hero {
+          min-height: 25vh;
+          padding-top: 100px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .mobile-nav a {
+          font-size: 1.7rem;
+        }
+
+        .mobile-close {
+          top: 20px;
+          right: 20px;
+          font-size: 2.5rem;
+        }
+
+        .contact-form,
+        .contact-info {
+          padding: 25px;
+        }
+
+        .contact-info h4 {
+          font-size: 1.6rem;
+        }
+
+        .contact-info .map-container {
+          height: 250px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <img
+          src="../images/logos/HorizontalInv.png"
+          alt="Aristo"
+          class="brand-logo"
+        />
+
+        <!-- Desktop Navigation -->
+        <nav class="nav">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#vision">Our Vision</a>
+          <a href="../index.html#mission">Mission</a>
+          <a href="../index.html#products">Products</a>
+          <a href="../index.html#services">Services</a>
+          <a href="../index.html#about">About</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" aria-label="Open menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Full-Screen Menu -->
+      <div class="mobile-panel" id="mobileMenu">
+        <button class="mobile-close" aria-label="Close menu">×</button>
+        <nav class="mobile-nav">
+          <a href="../index.html" class="mobile-link">Home</a>
+          <a href="../index.html#vision" class="mobile-link">Our Vision</a>
+          <a href="../index.html#mission" class="mobile-link">Mission</a>
+          <a href="../index.html#products" class="mobile-link">Products</a>
+          <a href="../index.html#services" class="mobile-link">Services</a>
+          <a href="../index.html#about" class="mobile-link">About</a>
+          <a href="./contact.html" class="mobile-link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact" id="contact">
+      <div class="wrap">
+        <h2 class="section-heading">CONTACT <span>US</span></h2>
+        <h3 class="section-sub">Keep In Touch</h3>
+
+        <div class="contact-content">
+          <!-- Contact Form -->
+          <div class="contact-form">
+            <form action="#" method="post">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+              />
+
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your@email.com"
+                required
+              />
+
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Write your message here..."
+                required
+              ></textarea>
+
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+
+          <!-- Contact Info and Map -->
+          <div class="contact-info">
+            <h4>Get in Touch</h4>
+            <p>
+              <strong>Email:</strong><br />
+              <a href="mailto:info@aristo-eg.com">info@aristo-eg.com</a>
+            </p>
+            <p>
+              <strong>Phone:</strong><br />
+              <a href="tel:+2001205866333">+20 012 0586 6333</a>
+            </p>
+
+            <div class="social">
+              <a
+                href="#"
+                target="_blank"
+                title="Facebook"
+                aria-label="Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                title="Instagram"
+                aria-label="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                target="_blank"
+                title="LinkedIn"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+
+            <h4>Find Us</h4>
+            <div class="map-container">
+              <!-- Google Maps Embed -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.868612502081!2d-122.41941618468022!3d37.77492977975998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085811b732f04cf%3A0x79f17b6227f9a1f2!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v1624243885562!5m2!1sen!2sus"
+                width="100%"
+                height="300"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <img
+          src="../images/logos/CompactInv.png"
+          alt="Aristo"
+          class="footer-logo"
+        />
+        <p>Copyright © 2025 All Rights Reserved Aristoed Tech</p>
+        <div class="social">
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const openBtn = document.querySelector(".mobile-toggle");
+      const panel = document.querySelector(".mobile-panel");
+      const closeBtn = document.querySelector(".mobile-close");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+
+      openBtn.addEventListener("click", () => {
+        panel.classList.add("open");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        panel.classList.remove("open");
+      });
+
+      // Close mobile menu when clicking a link
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          panel.classList.remove("open");
+        });
+      });
+    </script>
+  </body>
+</html>
