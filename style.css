@@ -12,7 +12,6 @@
   --cyan-500: #009ecf;
   --cyan-200: #97e7f5;
   --green-600: #46b000;
-  --orange: #ff8c42;
   --max-width: 1200px;
 }
 
@@ -311,7 +310,7 @@ html {
 .hero-btn {
   display: inline-block;
   padding: 18px 50px;
-  background: linear-gradient(135deg, #ff8c42 0%, #ff6b35 100%);
+  background: var(--green-600);
   color: #ffffff;
   text-decoration: none;
   font-size: 1.2rem;
@@ -569,7 +568,7 @@ html {
   display: inline-block;
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
-  color: var(--orange);
+  color: var(--green-600);
   text-transform: capitalize;
   padding: 20px 60px;
   background: rgba(45, 27, 94, 0.7);
@@ -606,7 +605,7 @@ html {
 
 .card-icon {
   font-size: 4rem;
-  color: var(--orange);
+  color: var(--green-600);
   margin-bottom: 30px;
   display: block;
 }
@@ -676,7 +675,7 @@ html {
   display: inline-block;
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
-  color: var(--orange);
+  color: var(--green-600);
   text-transform: capitalize;
   padding: 20px 60px;
   background: rgba(45, 27, 94, 0.7);
@@ -769,7 +768,7 @@ html {
 }
 
 .product-btn:hover {
-  background: var(--orange);
+  background: var(--green-600);
   color: #ffffff;
   transform: scale(1.05);
   border-color: #ffffff;
@@ -828,6 +827,13 @@ html {
 
 .footer-logo {
   height: 40px;
+}
+
+.footer-logo {
+  transition: transform 0.3s ease;
+}
+.footer-logo:hover {
+  transform: scale(1.05);
 }
 
 .social {
@@ -901,7 +907,7 @@ html {
 
   .who-we-are,
   .mission {
-    padding: 80px 0;
+    padding: 60px 0;
   }
 
   .why-cards-grid {

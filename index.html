@@ -114,7 +114,7 @@
           </div>
           <div class="vision-image">
             <img
-              src="images/Lamp.jpg"
+              src="images/Optimized/Lamp.webp"
               alt="Students learning with technology"
               loading="lazy"
             />
@@ -144,7 +144,7 @@
         <div class="mission-content">
           <div class="mission-image">
             <img
-              src="images/stem.jpg"
+              src="images/Optimized/stem.webp"
               alt="STEAM education in action"
               loading="lazy"
             />
@@ -268,7 +268,7 @@
           <!-- Product 1: One Day Event -->
           <div class="product-card">
             <img
-              src="images/Screenshot (18).png"
+              src="images/Optimized/Screenshot (18).webp"
               alt="One Day Events"
               class="product-image"
               loading="lazy"
@@ -282,7 +282,7 @@
           <!-- Product 2: School Custom Tailored Programs -->
           <div class="product-card">
             <img
-              src="images/oneday.jpg"
+              src="images/Optimized/oneday.webp"
               alt="School Custom Programs"
               class="product-image"
               loading="lazy"
@@ -296,7 +296,7 @@
           <!-- Product 3: Camps -->
           <div class="product-card">
             <img
-              src="images/Camps.jpg"
+              src="images/Optimized/Camps.webp"
               alt="Educational Camps"
               class="product-image"
               loading="lazy"
@@ -310,7 +310,7 @@
           <!-- Product 4: After School Activity -->
           <div class="product-card">
             <img
-              src="images/afetter school.jpg"
+              src="images/Optimized/afetter school.webp"
               alt="After School Activities"
               class="product-image"
               loading="lazy"
@@ -426,6 +426,17 @@
             link.classList.add("active");
           }
         });
+      });
+
+      document.querySelectorAll(".mobile-nav a").forEach((link) => {
+        link.addEventListener(
+          "click",
+          () => (document.querySelector(".mobile-nav").style.display = "none")
+        );
+      });
+      // Set home as active on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector('.nav a[href="#home"]')?.classList.add("active");
       });
     </script>
   </body>
