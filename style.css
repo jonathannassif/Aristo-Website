@@ -40,6 +40,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 /* HEADER */
 .site-header {
   position: fixed;
@@ -966,6 +971,14 @@ html {
 
   .product-card {
     height: 300px;
+  }
+
+  .section-title-products {
+    font-size: 1.9rem;
+    padding: 14px 24px;
+    max-width: 90%;
+    white-space: normal;
+    text-align: center;
   }
 
   .wave-divider svg,
