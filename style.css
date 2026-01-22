@@ -379,7 +379,8 @@ body {
 .who-we-are {
   position: relative;
   padding: 100px 0;
-  background: linear-gradient(rgba(76, 44, 146, 0.9), rgba(76, 44, 146, 0.9)),
+  background:
+    linear-gradient(rgba(76, 44, 146, 0.9), rgba(76, 44, 146, 0.9)),
     url(./images/2/2_page-0001.jpg) center/cover no-repeat;
   background-attachment: fixed;
 }
@@ -466,7 +467,8 @@ body {
 .mission {
   position: relative;
   padding: 100px 0;
-  background: linear-gradient(rgba(58, 36, 112, 0.9), rgba(58, 36, 112, 0.9)),
+  background:
+    linear-gradient(rgba(58, 36, 112, 0.9), rgba(58, 36, 112, 0.9)),
     url(./images/saaa.jpg) center/cover no-repeat;
   background-attachment: fixed;
 }
