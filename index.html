@@ -3,23 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
     <meta
       name="description"
       content="Aristo - Empowering youth through STEAM education and experiential learning. Learn, Innovate, and Dream with our hands-on educational programs."
     />
     <meta
       name="keywords"
-      content="STEAM education, youth empowerment, experiential learning, educational programs"
+      content="STEAM education, youth empowerment, experiential learning, educational programs, Egypt"
     />
+
+    <!-- Open Graph (social sharing) -->
+    <meta property="og:title" content="Aristo — Learn · Innovate · Dream" />
+    <meta
+      property="og:description"
+      content="Empowering youth through STEAM education and experiential learning."
+    />
+    <meta property="og:image" content="images/logos/HorizontalInv.png" />
+    <meta property="og:type" content="website" />
+
     <title>Aristo — Learn · Innovate · Dream</title>
+
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/logos/favicon.png" />
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
   </head>
   <body>
-    <!-- HEADER -->
+    <!-- ── HEADER ── -->
     <header class="site-header">
       <div class="wrap header-inner">
         <a href="#home" class="logo-link" aria-label="Aristo Home">
@@ -30,8 +44,8 @@
           />
         </a>
 
-        <!-- Desktop Navigation -->
-        <nav class="nav desktop-nav">
+        <!-- Desktop Nav -->
+        <nav class="nav desktop-nav" aria-label="Main navigation">
           <a href="#home">Home</a>
           <a href="#who-we-are">Our Vision</a>
           <a href="#mission">Mission</a>
@@ -41,18 +55,22 @@
           <a href="./pages/contact.html">Contact</a>
         </nav>
 
-        <!-- Mobile Menu Toggle -->
-        <button class="mobile-toggle" aria-label="Open menu">
+        <!-- Mobile Toggle -->
+        <button
+          class="mobile-toggle"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
         </button>
       </div>
 
-      <!-- Mobile Full-Screen Menu -->
-      <div class="mobile-panel" id="mobileMenu">
+      <!-- Mobile Panel -->
+      <div class="mobile-panel" id="mobileMenu" aria-hidden="true">
         <button class="mobile-close" aria-label="Close menu">×</button>
-        <nav class="mobile-nav">
+        <nav class="mobile-nav" aria-label="Mobile navigation">
           <a href="#home" class="mobile-link">Home</a>
           <a href="#who-we-are" class="mobile-link">Our Vision</a>
           <a href="#mission" class="mobile-link">Mission</a>
@@ -64,17 +82,16 @@
       </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- ── HERO ── -->
     <section class="hero" id="home">
       <div class="wrap">
         <div class="hero-content">
           <h1>ARISTO DREAM LEARN INNOVATE</h1>
           <p class="hero-subtitle">YOUR DOOR TO THE FUTURE</p>
-          <a href="#products" class="hero-btn">Explore Our Products</a>
+          <a href="./pages/form.html" class="hero-btn">Join Our Programs</a>
         </div>
 
-        <!-- Decorative wave at bottom -->
-        <div class="wave-bottom">
+        <div class="wave-bottom" aria-hidden="true">
           <svg
             viewBox="0 0 1440 120"
             fill="none"
@@ -99,7 +116,7 @@
       </div>
     </section>
 
-    <!-- WHO WE ARE SECTION -->
+    <!-- ── WHO WE ARE ── -->
     <section class="who-we-are" id="who-we-are">
       <div class="wrap">
         <h2 class="section-title">Who We Are?</h2>
@@ -115,15 +132,14 @@
           <div class="vision-image">
             <img
               src="images/Optimized/Lamp.webp"
-              alt="Students learning with technology"
+              alt="Aristo student engaged in a hands-on STEAM learning activity"
               loading="lazy"
             />
           </div>
         </div>
       </div>
 
-      <!-- ANIMATED WAVE DIVIDER -->
-      <div class="wave-divider">
+      <div class="wave-divider" aria-hidden="true">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -133,19 +149,19 @@
           <path
             d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
             class="shape-fill"
-          ></path>
+          />
         </svg>
       </div>
     </section>
 
-    <!-- MISSION SECTION -->
+    <!-- ── MISSION ── -->
     <section class="mission" id="mission">
       <div class="wrap">
         <div class="mission-content">
           <div class="mission-image">
             <img
               src="images/Optimized/stem.webp"
-              alt="STEAM education in action"
+              alt="Students and teachers collaborating on a STEAM project"
               loading="lazy"
             />
           </div>
@@ -163,8 +179,7 @@
         </div>
       </div>
 
-      <!-- WAVE DIVIDER AT BOTTOM -->
-      <div class="wave-divider-bottom">
+      <div class="wave-divider-bottom" aria-hidden="true">
         <svg
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
@@ -174,15 +189,14 @@
           <path
             d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
             class="shape-fill"
-          ></path>
+          />
         </svg>
       </div>
     </section>
 
-    <!-- WHY CHOOSE ARISTO SECTION -->
+    <!-- ── WHY CHOOSE ── -->
     <section class="why-choose-section" id="why-choose">
-      <!-- Decorative wave at top -->
-      <div class="wave-top">
+      <div class="wave-top" aria-hidden="true">
         <svg
           viewBox="0 0 1440 120"
           fill="none"
@@ -202,37 +216,28 @@
       </div>
 
       <div class="why-container">
-        <!-- Section Title -->
         <div class="section-title-box">
           <h2 class="section-title-why">Why choose Aristo?</h2>
         </div>
 
-        <!-- Cards Grid -->
         <div class="why-cards-grid">
-          <!-- Card 1: Youth Upskilling -->
           <div class="why-card">
             <i class="fas fa-chart-line card-icon" aria-hidden="true"></i>
-            <h3 class="card-title">Youth upskilling</h3>
+            <h3 class="card-title">Youth Upskilling</h3>
             <p class="card-description">
               To empower youth to learn new skills in an environment that is
               full of using senses and story-based experiences.
             </p>
           </div>
-
-          <!-- Card 2: Innovation -->
           <div class="why-card">
             <i class="fas fa-lightbulb card-icon" aria-hidden="true"></i>
             <h3 class="card-title">Innovation</h3>
             <p class="card-description">
               To adopt, innovate and revolutionize new methods that enable
-              access to the educational tools necessary to develop the
-              knowledge, and skills that help solve real-world problems and lead
-              to continued prosperity for the community, and the planet at
-              large.
+              access to the educational tools necessary to develop the knowledge
+              and skills that help solve real-world problems.
             </p>
           </div>
-
-          <!-- Card 3: Future of Education -->
           <div class="why-card">
             <i class="fas fa-gem card-icon" aria-hidden="true"></i>
             <h3 class="card-title">Future of Education</h3>
@@ -244,8 +249,7 @@
         </div>
       </div>
 
-      <!-- GREEN RIBBON -->
-      <div class="green-ribbon">
+      <div class="green-ribbon" aria-hidden="true">
         <div class="scroll">
           DREAM • LEARN • INNOVATE • DREAM • LEARN • INNOVATE • DREAM • LEARN •
           INNOVATE • DREAM • LEARN • INNOVATE • DREAM • LEARN • INNOVATE • DREAM
@@ -255,45 +259,40 @@
       </div>
     </section>
 
-    <!-- PRODUCTS SECTION -->
+    <!-- ── PRODUCTS ── -->
     <section class="products-section" id="products">
       <div class="products-container">
-        <!-- Section Title -->
         <div class="section-title-box">
           <h2 class="section-title-products">Our Products</h2>
         </div>
 
-        <!-- Products Grid -->
         <div class="products-grid">
-          <!-- Product 1: One Day Event -->
           <div class="product-card">
             <img
               src="images/Optimized/Screenshot (18).webp"
-              alt="One Day Events"
+              alt="One Day Events program"
               class="product-image"
               loading="lazy"
             />
             <div class="product-overlay">
               <h3 class="product-title">One Day Events</h3>
-              <a href="#" class="product-btn">Learn More</a>
+              <a href="./pages/form.html" class="product-btn">Apply Now</a>
             </div>
           </div>
 
-          <!-- Product 2: School Custom Tailored Programs -->
           <div class="product-card">
             <img
               src="images/Optimized/oneday.webp"
-              alt="School Custom Programs"
+              alt="School Custom Tailored Programs"
               class="product-image"
               loading="lazy"
             />
             <div class="product-overlay">
               <h3 class="product-title">School Custom Tailored Programs</h3>
-              <a href="#" class="product-btn">Learn More</a>
+              <a href="./pages/form.html" class="product-btn">Apply Now</a>
             </div>
           </div>
 
-          <!-- Product 3: Camps -->
           <div class="product-card">
             <img
               src="images/Optimized/Camps.webp"
@@ -303,11 +302,10 @@
             />
             <div class="product-overlay">
               <h3 class="product-title">Camps</h3>
-              <a href="#" class="product-btn">Learn More</a>
+              <a href="./pages/form.html" class="product-btn">Apply Now</a>
             </div>
           </div>
 
-          <!-- Product 4: After School Activity -->
           <div class="product-card">
             <img
               src="images/Optimized/afetter school.webp"
@@ -317,20 +315,21 @@
             />
             <div class="product-overlay">
               <h3 class="product-title">After School Activities</h3>
-              <a href="#" class="product-btn">Learn More</a>
+              <a href="./pages/form.html" class="product-btn">Apply Now</a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ── FOOTER ── -->
     <footer class="site-footer">
       <div class="wrap footer-inner">
         <img
           src="images/logos/CompactInv.png"
           alt="Aristo Logo"
           class="footer-logo"
+          loading="lazy"
         />
         <p>Copyright © 2025 All Rights Reserved Aristo Tech</p>
         <div class="social">
@@ -359,7 +358,7 @@
       </div>
     </footer>
 
-    <!-- SCROLL TO TOP BUTTON -->
+    <!-- Scroll to Top -->
     <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
       <i class="fas fa-arrow-up"></i>
     </button>

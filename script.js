@@ -1,4 +1,8 @@
-// Mobile Menu Toggle
+// ─────────────────────────────────────────
+//  ARISTO — main script
+// ─────────────────────────────────────────
+
+// ── 1. MOBILE MENU ──────────────────────
 const openBtn = document.querySelector(".mobile-toggle");
 const panel = document.querySelector(".mobile-panel");
 const closeBtn = document.querySelector(".mobile-close");
@@ -6,62 +10,59 @@ const mobileLinks = document.querySelectorAll(".mobile-link");
 
 openBtn.addEventListener("click", () => {
   panel.classList.add("open");
-  document.body.style.overflow = "hidden"; // Prevent scrolling
+  document.body.style.overflow = "hidden";
 });
 
-closeBtn.addEventListener("click", () => {
+closeBtn.addEventListener("click", closeMobileMenu);
+
+mobileLinks.forEach((link) => link.addEventListener("click", closeMobileMenu));
+
+function closeMobileMenu() {
   panel.classList.remove("open");
-  document.body.style.overflow = ""; // Restore scrolling
-});
+  document.body.style.overflow = "";
+}
 
-mobileLinks.forEach((link) => {
-  link.addEventListener("click", () => {
-    panel.classList.remove("open");
-    document.body.style.overflow = ""; // Restore scrolling
-  });
-});
-
-// Scroll to Top Button
+// ── 2. SCROLL HANDLER (merged + debounced) ──
 const scrollToTopBtn = document.getElementById("scrollToTop");
-
-window.addEventListener("scroll", () => {
-  if (window.pageYOffset > 300) {
-    scrollToTopBtn.classList.add("visible");
-  } else {
-    scrollToTopBtn.classList.remove("visible");
-  }
-});
-
-scrollToTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
-
-// Add active state to nav links on scroll
 const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav a, .mobile-link");
+const navLinks = document.querySelectorAll(".desktop-nav a, .mobile-link");
 
-window.addEventListener("scroll", () => {
+function onScroll() {
+  const y = window.scrollY;
+
+  // Scroll-to-top button visibility
+  scrollToTopBtn.classList.toggle("visible", y > 300);
+
+  // Active nav link on scroll
   let current = "";
   sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.clientHeight;
-    if (pageYOffset >= sectionTop - 200) {
+    if (y >= section.offsetTop - 200) {
       current = section.getAttribute("id");
     }
   });
 
   navLinks.forEach((link) => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active");
-    }
+    link.classList.toggle(
+      "active",
+      link.getAttribute("href") === `#${current}`,
+    );
   });
+}
+
+// Debounce: only fires after scrolling pauses for 50ms — better performance
+let scrollTimer;
+window.addEventListener("scroll", () => {
+  clearTimeout(scrollTimer);
+  scrollTimer = setTimeout(onScroll, 50);
 });
 
-// Set home as active on page load
+// ── 3. SCROLL TO TOP ────────────────────
+scrollToTopBtn.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// ── 4. SET HOME ACTIVE ON LOAD ──────────
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector('.nav a[href="#home"]')?.classList.add("active");
+  const homeLink = document.querySelector('.desktop-nav a[href="#home"]');
+  if (homeLink) homeLink.classList.add("active");
 });
